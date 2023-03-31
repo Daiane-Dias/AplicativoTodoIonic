@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ViewController,NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ViewController,NavParams, Item } from 'ionic-angular';
+
 
 /**
  * Generated class for the AddItemPage page.
@@ -22,7 +23,7 @@ export class AddItemPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddItemPage');
+    //console.log('ionViewDidLoad AddItemPage');
   }
 saveItem(){
   
@@ -32,15 +33,7 @@ saveItem(){
   };
   this.view.dismiss(newItem);
 }
-editItem(){
-  this.title = this.navParams.get('item').title;
-  this.description = this.navParams.get('item').description;
-  let editItem ={
-    title:this.title,
-    description:this.description
-  };
-  this.view.dismiss(editItem);
-}
+
 close(){
   this.view.dismiss();
 }

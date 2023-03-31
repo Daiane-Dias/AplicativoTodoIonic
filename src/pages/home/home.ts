@@ -3,6 +3,7 @@ import { ModalController, NavController} from 'ionic-angular';
 import {Data} from '../../providers/data/data';
 import {AddItemPage} from '../add-item/add-item';
 import {ItemDetailPage} from '../item-detail/item-detail';
+import { ItemUpdatePage } from '../item-update/item-update';
 
 @Component({
   selector: 'page-home',
@@ -60,12 +61,22 @@ for(var i = 0; i < this.items.length; i++){
 }
 
 updateItem(item){
-  let addModal = this.modalCtrl.create(AddItemPage);
-  addModal.onDidDismiss((item) =>{
-    if(item){
+for(var i = 0; i < this.items.length; i++){
+  
+  if(this.items[i] == item){
+    this.items.splice(i,1);
+    let addModal = this.modalCtrl.create(ItemUpdatePage);
+   addModal.onDidDismiss((item) =>{
+     if(item){
       this.saveItem(item);
     }
   });
+  
 addModal.present();
+  }
+  
+    
+  }
 }
 }
+
